@@ -1,1 +1,87 @@
 /* This is the main stylesheet */
+
+:root{
+  --container-width: 880px;
+  --primary: #29A0B1;
+  --primary-dark: #167D7F;
+  --light: #DDFFE7;
+}
+
+a{
+  text-decoration: none;
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+.container{
+  max-width: var(--container-width);
+  margin: 0px auto;
+}
+
+.btn{
+  text-transform: none !important;
+}
+.btn[type='submit']{
+  padding: 8px 30px;
+  font-size: 16px;
+}
+.btn i{
+  margin-right: 5px !important;
+}
+
+
+
+/* these are the internal stylings */
+/* The header */
+header {
+  background-color: var(--primary-dark);
+}
+header .logo{
+  padding: 15px 10px;
+  color: #fff;
+}
+header .logo i{
+  margin-right: 5px;
+}
+
+/* now the main styling */
+.card{
+  border: 1px solid #b0b0b0;
+  padding: 15px;
+  border-radius: 5px;
+}
+.card.small{
+  max-width: 500px;
+  margin: 0px auto;
+}
+.card .title{
+  text-align: center;
+  margin-bottom: 20px;
+}
+.card .title h1{
+  font-size: 36px;
+  font-weight: 600;
+  color: #222;
+}
+.card .title p.light{
+  color: #5a5a5a;
+  font-size: 14.5px;
+}
+main{
+  padding: 30px 15px;
+}
+main .dangler{
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+
+/* some utility classes */
+
+/* backgrounds */
+.bg-primary{
+  background: var(--primary) !important;
+}
+.bg-primary-dark{
+  background: var(--primary-dark) !important;
+}

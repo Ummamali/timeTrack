@@ -6,7 +6,7 @@
   <script src="https://kit.fontawesome.com/8f301084b2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="http://cdn.protonium.xyz/magma.css">
   <link rel="stylesheet" href="./style.css">
-  <title>TimeTrack | Track your time | Protonium Apps</title>
+  <title>TimeTrack | Track your time and get registered| Protonium Apps</title>
 </head>
 <body>
   <header>
@@ -20,10 +20,14 @@
   <main class="container">
     <div class="small card">
       <div class="title">
-        <h1>Sign In</h1>
-      <p class="light">The application is waiting for you</p>
+        <h1>Get Registered</h1>
+      <p class="light">Get registered and start using our app</p>
       </div>
       <form>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text"  id="username" autocomplete="off">
+        </div>
         <div class="form-group">
           <label for="email">Email</label>
           <input type="text"  id="email" autocomplete="email">
@@ -32,10 +36,14 @@
           <label for="password">Password</label>
           <input type="password"  id="password" autocomplete="current-password">
         </div>
-        <button type='submit' class="btn bg bg-primary"><i class="fas fa-sign-in-alt"></i>Sign In</button>
+        <div class="form-group">
+          <label for="shopname">Shop Name</label>
+          <input type="text"  id="shopname" autocomplete="off">
+        </div>
+        <button type='submit' class="btn bg bg-primary"><i class="fas fa-sign-in-alt"></i>Register</button>
       </form>
     </div>
-    <p class="dangler">Don't have an account? <a href="./register.html" >Register</a></p>
+    <p class="dangler">Already registered? <a href="./index.html" >Log In</a></p>
   </main>
 </body>
 </html>
