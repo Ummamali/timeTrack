@@ -2,8 +2,8 @@
 
 :root{
   --container-width: 880px;
-  --primary: #29A0B1;
-  --primary-dark: #167D7F;
+  --primary: #2d85c6;
+  --primary-dark: #0f4b80;
   --light: #DDFFE7;
 }
 
@@ -12,10 +12,7 @@ a{
   color: var(--primary-dark);
   font-weight: 600;
 }
-.container{
-  max-width: var(--container-width);
-  margin: 0px auto;
-}
+
 
 .btn{
   text-transform: none !important;
@@ -35,19 +32,30 @@ a{
 header {
   background-color: var(--primary-dark);
 }
+header .nav{
+  padding: 15px;
+}
 header .logo{
-  padding: 15px 10px;
+  padding: 0px 10px;
+}
+header .logo a{
   color: #fff;
 }
 header .logo i{
   margin-right: 5px;
 }
 
+
+main{
+  padding: 60px 15px;
+}
+
 /* now the main styling */
 .card{
-  border: 1px solid #b0b0b0;
-  padding: 15px;
+  border: 1px solid #dcdcdc;
+  padding: 25px 15px;
   border-radius: 5px;
+  box-shadow: 0px 0px 10px #00000030;
 }
 .card.small{
   max-width: 500px;
@@ -57,18 +65,20 @@ header .logo i{
   text-align: center;
   margin-bottom: 20px;
 }
+.card .title img{
+  width: 150px;
+}
 .card .title h1{
-  font-size: 36px;
-  font-weight: 600;
+  margin-top: -5px;
+  font-size: 42px;
+  font-weight: 500;
   color: #222;
 }
 .card .title p.light{
   color: #5a5a5a;
   font-size: 14.5px;
 }
-main{
-  padding: 30px 15px;
-}
+
 main .dangler{
   text-align: center;
   margin-top: 10px;
@@ -84,4 +94,9 @@ main .dangler{
 }
 .bg-primary-dark{
   background: var(--primary-dark) !important;
+}
+
+.container{
+  max-width: var(--container-width);
+  margin: 0px auto;
 }

@@ -1,0 +1,97 @@
+/* This conatisn all styling for main container */
+
+main#main-app{
+  padding: 30px 15px;
+}
+main#main-app h1.heading, 
+main#main-app h2.heading
+{
+  font-weight: 700;
+  color: #21597f;
+  margin-bottom: -3px;
+}
+main#main-app h1.heading{
+  font-size: 44px;
+}
+main#main-app h2.heading{
+  font-size: 36px;
+}
+main#main-app h1.heading ~ p{
+  color: #7e7e7e;
+}
+main#main-app .card #logo-img{
+  margin-top: -12px;
+  margin-right: -10px;
+  width: 100px;
+}
+
+/* form and other styling */
+input::placeholder{
+  font-size: 14px;
+  font-style: italic;
+  color: #aaa;
+}
+main#main-app input[type='text'],
+main#main-app input[type='number']
+{
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  padding: 0px 5px 5px 5px;
+  border-radius: 0px;
+}
+main#main-app input.box{
+  border: 1px solid #aaa;
+  padding: 5px;
+  border-radius: 3px;
+  max-width: 200px;
+}
+main#main-app .form-group .data-row{
+  margin-right: 10px;
+}
+main#main-app .form-group .first.frow{
+  justify-content: space-between;
+}
+main#main-app .form-group .btn{
+  background: #21597f;
+  border-color: transparent;
+  color: #ffd46a;
+}
+
+
+
+/* now the item class */
+ul#items-list{
+  list-style: none;
+}
+ul#items-list li{
+  display: grid;
+  grid-template-columns: 70px auto 100px;
+  border: 1px solid #000000;
+}
+ul#items-list li .number{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  padding: 10px;
+  background: #21597f;
+  font-size: 24px;
+}
+ul#items-list li .data{
+  padding: 10px;
+}
+ul#items-list li .data h3{
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+ul#items-list li .data i{
+  margin: 0px 5px;
+  color: #f1ac00;
+}
+ul#items-list li .time{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
