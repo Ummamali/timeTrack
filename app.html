@@ -32,18 +32,29 @@
           </div>
           <div class="form-group">
             <label for="t-data">Table Description</label>
-            <input type="text" id="t-data" placeholder="Some useful data for the reservation...">
+            <input type="text" id="t-data" placeholder="Some useful data for the reservation..." autocomplete="off">
           </div>
           <div class="form-group">
             <div class="first frow">
               <div class="frow">
                 <div class="data-row">
                   <label for="hours">Hours</label>
-                  <input type="number" id="hours" class="box" placeholder="Your hours here...">
+                  <input type="number" id="hours" class="box" placeholder="Your hours here..." list="hour-options">
+                  <datalist id="hour-options"> 
+                    <option value="0"></option>
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                  </datalist>
                 </div>
                 <div class="data-row">
                   <label for="hours">Minutes</label>
-                  <input type="number" id="minutes" class="box" placeholder="Your minutes here...">
+                  <input type="number" id="minutes" class="box" placeholder="Your minutes here..." list="mins-options">
+                  <datalist id="mins-options">
+                    <option value="0"></option>
+                    <option value="30"></option>
+                    <option value="20"></option>
+                  </datalist>
                 </div>
               </div>
               <button type="submit" class="btn"><i class="fas fa-play"></i>Start Time</button>
@@ -85,6 +96,9 @@
       </div>
     </div>
   </main>
+  <script src="./scripts/classes.js"></script>
+  <script src="./scripts/ui.js"></script>
+  <script src="./scripts/application.js"></script>
 </body>
 
 </html>

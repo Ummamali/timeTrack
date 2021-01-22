@@ -37,9 +37,9 @@ input::placeholder{
 main#main-app input[type='text'],
 main#main-app input[type='number']
 {
-  border-top-color: transparent;
-  border-right-color: transparent;
-  border-left-color: transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
   padding: 0px 5px 5px 5px;
   border-radius: 0px;
 }
@@ -73,6 +73,7 @@ ul#items-list li{
   margin-bottom: 8px;
 }
 ul#items-list li .number{
+  font-family: 'Roboto', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,11 +101,25 @@ ul#items-list li .data i:hover{
   cursor: pointer;
 }
 ul#items-list li .time{
+  font-family: 'Roboto', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
   border-top: 1px solid var(--li-border-color);
   border-bottom: 1px solid var(--li-border-color);
   border-right: 1px solid var(--li-border-color);
-  font-size: 24px;
+  font-size: 20px;
+}
+
+
+
+/* for erros */
+.error label{
+  color: red;
+}
+.error input{
+  border-color: red !important;
+}
+.error input::placeholder{
+  color: rgb(255, 116, 116);
 }
