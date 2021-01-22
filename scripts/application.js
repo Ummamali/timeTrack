@@ -3,6 +3,7 @@
 App = (function (UiCtrl, TimeCtrl) {
   // This is the main app controller
   const DOMItems = UiCtrl.getDOMItems();
+  const itemsIds = [];
 
   function createPushItem(itemData) {
     const table = new TableItem(
@@ -23,8 +24,8 @@ App = (function (UiCtrl, TimeCtrl) {
       const formData = UiCtrl.getData();
       if (formData !== null) {
         createPushItem(formData);
+        UiCtrl.clearFields();
       }
-      UiCtrl.clearFields();
     });
 
     // This listener remover any error on the field
@@ -35,10 +36,8 @@ App = (function (UiCtrl, TimeCtrl) {
       DOMItems.minsField,
     ];
     for (const field of fields) {
-      field.originalMsg = field.getAttribute("placeholder");
       field.addEventListener("focus", function (e) {
         this.parentNode.classList.remove("error");
-        this.setAttribute("placeholder", this.originalMsg);
       });
     }
   }

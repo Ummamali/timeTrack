@@ -7,6 +7,7 @@ class TableItem {
     }
     this.description = description;
     this.elementForm = document.createElement("li");
+    this.elementForm.setAttribute("data-id", id);
     this.elementForm.innerHTML = `
       <p class="number">${id}</p>
       <div class="data">
@@ -31,7 +32,7 @@ class TableItem {
     const timeToShow = new Date(Math.abs(remaining));
     this.elementForm.querySelector(
       ".time"
-    ).textContent = `${timeToShow.getUTCHours()}:${timeToShow.getUTCMinutes()}:${timeToShow.getUTCSeconds()}`;
+    ).textContent = `${timeToShow.getUTCHours()} : ${timeToShow.getUTCMinutes()} : s${timeToShow.getUTCSeconds()}`;
   }
 }
 

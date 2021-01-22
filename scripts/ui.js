@@ -42,7 +42,7 @@ UiCtrl = (function () {
 
   function raiseError(field, msg) {
     field.parentNode.classList.add("error");
-    field.setAttribute("placeholder", msg);
+    field.parentNode.querySelector(".error-msg").textContent = msg;
   }
 
   function clearFields() {

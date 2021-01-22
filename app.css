@@ -1,79 +1,78 @@
 /* This conatisn all styling for main container */
 
-:root{
+:root {
   --li-border-color: #ccc;
 }
-main#main-app{
+
+main#main-app {
   padding: 30px 15px;
 }
-main#main-app h1.heading, 
-main#main-app h2.heading
-{
+main#main-app h1.heading,
+main#main-app h2.heading {
   font-weight: 700;
   color: #21597f;
   margin-bottom: -3px;
 }
-main#main-app h1.heading{
+main#main-app h1.heading {
   font-size: 44px;
 }
-main#main-app h2.heading{
+main#main-app h2.heading {
   font-size: 36px;
 }
-main#main-app h1.heading ~ p{
+main#main-app h1.heading ~ p {
   color: #7e7e7e;
 }
-main#main-app .card #logo-img{
+main#main-app .card #logo-img {
   margin-top: -12px;
   margin-right: -10px;
   width: 100px;
 }
 
 /* form and other styling */
-input::placeholder{
+input::placeholder {
   font-size: 14px;
   font-style: italic;
   color: #aaa;
 }
-main#main-app input[type='text'],
-main#main-app input[type='number']
-{
+main#main-app input[type="text"],
+main#main-app input[type="number"] {
   border-top: none;
   border-right: none;
   border-left: none;
   padding: 0px 5px 5px 5px;
   border-radius: 0px;
 }
-main#main-app input.box{
+main#main-app input.box {
   border: 1px solid #aaa;
   padding: 5px;
   border-radius: 3px;
-  max-width: 200px;
+  max-width: 250px;
 }
-main#main-app .form-group .data-row{
+main#main-app .form-group .data-row {
   margin-right: 10px;
 }
-main#main-app .form-group .first.frow{
+main#main-app .form-group .first.frow {
   justify-content: space-between;
+  align-items: center;
 }
-main#main-app .form-group .btn{
+main#main-app .form-group .btn {
   background: #21597f;
   border-color: transparent;
   color: #ffd46a;
+  height: 50px;
 }
-
-
 
 /* now the item class */
-ul#items-list{
+ul#items-list {
   list-style: none;
 }
-ul#items-list li{
+ul#items-list li {
   display: grid;
   grid-template-columns: 70px auto 100px;
   margin-bottom: 8px;
 }
-ul#items-list li .number{
-  font-family: 'Roboto', sans-serif;
+ul#items-list li .number {
+  font-family: "Roboto", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,26 +82,26 @@ ul#items-list li .number{
   border: 1px solid #21597f;
   font-size: 20px;
 }
-ul#items-list li .data{
+ul#items-list li .data {
   border-top: 1px solid var(--li-border-color);
   border-bottom: 1px solid var(--li-border-color);
   padding: 10px;
 }
-ul#items-list li .data h3{
+ul#items-list li .data h3 {
   font-weight: 500;
   color: #444;
   margin-bottom: 5px;
 }
-ul#items-list li .data i{
+ul#items-list li .data i {
   margin: 0px 5px;
   color: #f1ac00;
 }
-ul#items-list li .data i:hover{
+ul#items-list li .data i:hover {
   color: #d69900;
   cursor: pointer;
 }
-ul#items-list li .time{
-  font-family: 'Roboto', sans-serif;
+ul#items-list li .time {
+  font-family: "Roboto", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,12 +111,24 @@ ul#items-list li .time{
   font-size: 20px;
 }
 
-
-
 /* for erros */
-.error input{
-  border-color: red !important;
+.error-msg {
+  font-size: 12px;
+  color: red;
+  display: none;
+  margin: 5px;
 }
-.error input::placeholder{
-  color: rgb(255, 116, 116);
+.error-msg::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f12a";
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.error .error-msg {
+  display: block;
+}
+.error input {
+  border-color: red !important;
+  color: red !important;
 }

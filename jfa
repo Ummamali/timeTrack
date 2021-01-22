@@ -1,0 +1,35 @@
+[33mcommit f78563c06c5ddb0291577162e8bce36fbf5772a7[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Ummam Lappy <ummamali1@gmail.com>
+Date:   Fri Jan 22 19:23:11 2021 +0500
+
+    added some validation, fields error message need to be corrected
+
+[33mcommit b4c81d9f216c91df1c311aa9598e65cf304e5ff7[m
+Author: Ummam Lappy <ummamali1@gmail.com>
+Date:   Fri Jan 22 13:11:34 2021 +0500
+
+    added scripts
+
+[33mcommit 8668df652497d1d27e22d31d70661f1a9ce690cb[m
+Author: Ummam Lappy <ummamali1@gmail.com>
+Date:   Fri Jan 22 10:42:12 2021 +0500
+
+    completed the markup
+
+[33mcommit f24131d030ebe9fd77e6b21eabfa76dab1a4e379[m
+Author: Ummam Lappy <ummamali1@gmail.com>
+Date:   Thu Jan 21 15:27:13 2021 +0500
+
+    designed the app interface
+
+[33mcommit bd66d6fb9a3e1c9db968e0cdba55a63ab2ffba7a[m
+Author: Ummam Lappy <ummamali1@gmail.com>
+Date:   Wed Jan 20 13:29:03 2021 +0500
+
+    added index and register files
+
+[33mcommit 39c344a18fdfa6553f11d655c56a1dfa90834799[m
+Author: Ummam Lappy <ummamali1@gmail.com>
+Date:   Wed Jan 20 12:26:06 2021 +0500
+
+    added first files and started the project
