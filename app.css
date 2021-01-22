@@ -1,5 +1,8 @@
 /* This conatisn all styling for main container */
 
+:root{
+  --li-border-color: #ccc;
+}
 main#main-app{
   padding: 30px 15px;
 }
@@ -67,7 +70,7 @@ ul#items-list{
 ul#items-list li{
   display: grid;
   grid-template-columns: 70px auto 100px;
-  border: 1px solid #000000;
+  margin-bottom: 8px;
 }
 ul#items-list li .number{
   display: flex;
@@ -76,9 +79,12 @@ ul#items-list li .number{
   color: #ffffff;
   padding: 10px;
   background: #21597f;
+  border: 1px solid #21597f;
   font-size: 24px;
 }
 ul#items-list li .data{
+  border-top: 1px solid var(--li-border-color);
+  border-bottom: 1px solid var(--li-border-color);
   padding: 10px;
 }
 ul#items-list li .data h3{
@@ -89,9 +95,16 @@ ul#items-list li .data i{
   margin: 0px 5px;
   color: #f1ac00;
 }
+ul#items-list li .data i:hover{
+  color: #d69900;
+  cursor: pointer;
+}
 ul#items-list li .time{
   display: flex;
   align-items: center;
   justify-content: center;
+  border-top: 1px solid var(--li-border-color);
+  border-bottom: 1px solid var(--li-border-color);
+  border-right: 1px solid var(--li-border-color);
   font-size: 24px;
 }
