@@ -81,7 +81,7 @@ ul#items-list li .number{
   padding: 10px;
   background: #21597f;
   border: 1px solid #21597f;
-  font-size: 24px;
+  font-size: 20px;
 }
 ul#items-list li .data{
   border-top: 1px solid var(--li-border-color);
@@ -90,6 +90,7 @@ ul#items-list li .data{
 }
 ul#items-list li .data h3{
   font-weight: 500;
+  color: #444;
   margin-bottom: 5px;
 }
 ul#items-list li .data i{
@@ -114,9 +115,6 @@ ul#items-list li .time{
 
 
 /* for erros */
-.error label{
-  color: red;
-}
 .error input{
   border-color: red !important;
 }

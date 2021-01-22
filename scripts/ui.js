@@ -1,51 +1,59 @@
 // This module contains cll the ui functionality
 UiCtrl = (function () {
-  const selectors = {
-    mainForm: "#main-form",
-    numField: "#t-number",
-    dataField: "#t-data",
-    hrsField: "#hours",
-    minsField: "#minutes",
-    itemsList: "#items-list",
+  // This gets hold to important DOM elements
+  const DOMItems = {
+    mainForm: document.getElementById("main-form"),
+    numField: document.getElementById("t-number"),
+    dataField: document.getElementById("t-data"),
+    hrsField: document.getElementById("hours"),
+    minsField: document.getElementById("minutes"),
+    itemsList: document.getElementById("items-list"),
   };
 
   // gets the selectros
-  function getSelectors() {
-    return selectors;
+  function getDOMItems() {
+    return DOMItems;
   }
 
   // geta data from main form
   function getData() {
     const data = {
-      number: document.querySelector(selectors.numField).value,
-      data: document.querySelector(selectors.dataField).value,
-      hrs: document.querySelector(selectors.hrsField).value,
-      mins: document.querySelector(selectors.minsField).value,
+      number: DOMItems.numField.value,
+      data: DOMItems.dataField.value,
+      hrs: parseInt(DOMItems.hrsField.value),
+      mins: parseInt(DOMItems.minsField.value),
     };
-    return validate(data);
+    let result = data;
+    // now validating data
+    if (data.number === "") {
+      raiseError(DOMItems.numField, "Invalid number given...");
+      result = null;
+    }
+    if (data.hrs < 0 || isNaN(data.hrs)) {
+      raiseError(DOMItems.hrsField, "Invalid hours given...");
+      result = null;
+    }
+    if (isNaN(data.mins) || data.mins < 0 || data.mins >= 60) {
+      raiseError(DOMItems.minsField, "Max minute value is 59...");
+      result = null;
+    }
+    return result;
   }
 
-  function raiseError(field, msg){
-    field.parentNode.classList.add('error');
-    const listener = field.addEventListener('focus', function(e){
-      this.parentNode.classList.remove('error');
-      
-    });
+  function raiseError(field, msg) {
+    field.parentNode.classList.add("error");
+    field.setAttribute("placeholder", msg);
   }
 
   function clearFields() {
-    document.querySelector(selectors.numField).value = "";
-    document.querySelector(selectors.dataField).value = "";
-    document.querySelector(selectors.hrsField).value = "";
-    document.querySelector(selectors.minsField).value = "";
-  }
-
-  function validate(data) {
-    if(data)
+    DOMItems.numField.value = "";
+    DOMItems.dataField.value = "";
+    DOMItems.hrsField.value = "";
+    DOMItems.minsField.value = "";
   }
   // exports
   return {
-    getSelectors,
+    getDOMItems,
     getData,
     clearFields,
   };
