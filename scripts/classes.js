@@ -11,13 +11,16 @@ class TableItem {
     this.elementForm.innerHTML = `
       <p class="number">${id}</p>
       <div class="data">
+        <div class="status"></div>
+        <div>
         <h3>${description}</h3>
         <div class="frow">
-          <i class="fas fa-pencil-alt"></i>
-          <i class="fas fa-trash-alt"></i>
+          <i class="fas fa-pencil-alt" data-func="edit"></i>
+          <i class="fas fa-trash-alt" data-func="delete"></i>
         </div>
+        </div>
+        <div class="time">Starting...</div>
       </div>
-      <div class="time"></div>
     `;
     this.delta = hrs * 3600000 + mins * 60000;
   }
@@ -25,6 +28,9 @@ class TableItem {
   start() {
     this.started = new Date().getTime();
     this.willEnd = this.started + this.delta;
+    const status = this.elementForm.querySelector(".status");
+    status.style.transitionDuration = `${this.delta}ms`;
+    // status.style.width = "0%";
   }
 
   update(nowTime) {
@@ -32,22 +38,36 @@ class TableItem {
     const timeToShow = new Date(Math.abs(remaining));
     this.elementForm.querySelector(
       ".time"
-    ).textContent = `${timeToShow.getUTCHours()} : ${timeToShow.getUTCMinutes()} : s${timeToShow.getUTCSeconds()}`;
+    ).textContent = `${timeToShow.getUTCHours()}:${timeToShow.getUTCMinutes()}:${timeToShow.getUTCSeconds()}`;
   }
 }
 
 // this is the main timer controller
 const TimeCtrl = (function () {
   const timerList = [];
+  let intervalFunc;
 
   // This will add the time and starts it
   function push(newTimer) {
+    if (timerList.length === 0) {
+      startMainTimer();
+    }
     newTimer.start();
     timerList.push(newTimer);
   }
 
+  // removes the timer
+  function remove(itemIndex) {
+    const removed = timerList.splice(itemIndex, 1);
+    removed[0].elementForm.remove();
+    if (timerList.length === 0) {
+      stopMainTimer();
+    }
+  }
+
   function startMainTimer() {
-    setInterval(function () {
+    console.log("Main timer started...");
+    intervalFunc = setInterval(function () {
       const now = new Date();
       let nowTime = now.getTime();
       if (now.getMilliseconds() > 500) {
@@ -60,8 +80,17 @@ const TimeCtrl = (function () {
     }, 1000);
   }
 
+  function stopMainTimer() {
+    console.log("main timer stopped...");
+    clearInterval(intervalFunc);
+  }
+
+  function logTimer() {
+    console.log(timerList);
+  }
   return {
     push,
-    startMainTimer,
+    remove,
+    logTimer,
   };
 })();

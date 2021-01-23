@@ -14,6 +14,13 @@ App = (function (UiCtrl, TimeCtrl) {
     );
     DOMItems.itemsList.appendChild(table.elementForm);
     TimeCtrl.push(table);
+    itemsIds.push(table.id);
+  }
+
+  function removeItem(itemId) {
+    const index = itemsIds.findIndex((id) => id === itemId);
+    itemsIds.splice(index, 1);
+    TimeCtrl.remove(index);
   }
 
   // loads all the listeners
@@ -23,12 +30,18 @@ App = (function (UiCtrl, TimeCtrl) {
       e.preventDefault();
       const formData = UiCtrl.getData();
       if (formData !== null) {
-        createPushItem(formData);
-        UiCtrl.clearFields();
+        // now checking whether the id alredy exists or not
+        if (itemsIds.includes(formData.number) === false) {
+          createPushItem(formData);
+          UiCtrl.clearFields();
+          UiCtrl.flash(`Table ${formData.number} has been added`, "success");
+        } else {
+          UiCtrl.flash(`Table ${formData.number} already reserved`, "error");
+        }
       }
     });
 
-    // This listener remover any error on the field
+    // This listener to remove any error on the field
     const fields = [
       DOMItems.numField,
       DOMItems.dataField,
@@ -40,12 +53,20 @@ App = (function (UiCtrl, TimeCtrl) {
         this.parentNode.classList.remove("error");
       });
     }
+
+    // The listener to remove the reservation
+    DOMItems.itemsList.addEventListener("click", function (e) {
+      const target = e.target;
+      if (target.dataset.func === "delete") {
+        const id = target.parentNode.parentNode.parentNode.dataset.id;
+        removeItem(id);
+      }
+    });
   }
 
   // initializes the app
   function init() {
     loadListeners();
-    TimeCtrl.startMainTimer();
   }
 
   return {

@@ -8,6 +8,7 @@ UiCtrl = (function () {
     hrsField: document.getElementById("hours"),
     minsField: document.getElementById("minutes"),
     itemsList: document.getElementById("items-list"),
+    flashContainer: document.getElementById("flash"),
   };
 
   // gets the selectros
@@ -51,10 +52,20 @@ UiCtrl = (function () {
     DOMItems.hrsField.value = "";
     DOMItems.minsField.value = "";
   }
+
+  // flashes the interface
+  function flash(message, cls) {
+    DOMItems.flashContainer.querySelector("p").innerHTML = message;
+    DOMItems.flashContainer.classList.add(cls);
+    setTimeout(function () {
+      DOMItems.flashContainer.classList.remove(cls);
+    }, 3000);
+  }
   // exports
   return {
     getDOMItems,
     getData,
     clearFields,
+    flash,
   };
 })();
