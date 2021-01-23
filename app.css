@@ -66,12 +66,12 @@ main#main-app .form-group .btn {
 ul#items-list {
   list-style: none;
 }
-ul#items-list li {
+ul#items-list li.item {
   display: grid;
   grid-template-columns: 70px auto;
   margin-bottom: 8px;
 }
-ul#items-list li .number {
+ul#items-list li.item .number {
   font-family: "Roboto", sans-serif;
   display: flex;
   align-items: center;
@@ -82,7 +82,7 @@ ul#items-list li .number {
   border: 1px solid #21597f;
   font-size: 20px;
 }
-ul#items-list li .data {
+ul#items-list li.item .data {
   position: relative;
   border-top: 1px solid var(--li-border-color);
   border-bottom: 1px solid var(--li-border-color);
@@ -92,8 +92,8 @@ ul#items-list li .data {
   justify-content: space-between;
   padding: 10px;
 }
-ul#items-list li .data .status{
-  content: '';
+ul#items-list li.item .data .status {
+  content: "";
   position: absolute;
   top: 0px;
   left: 0px;
@@ -102,19 +102,30 @@ ul#items-list li .data .status{
   height: 100%;
   background: #aaaaaa47;
   transition-property: width;
+  transition-timing-function: linear;
 }
-ul#items-list li .data h3 {
+ul#items-list li.item .data h3 {
   font-weight: 500;
-  color: #444;
+  color: #333;
   margin-bottom: 5px;
 }
-ul#items-list li .data i {
+ul#items-list li.item .data i {
+  font-size: 14px;
   margin: 0px 5px;
-  color: #f1ac00;
+  color: #2b8fe0;
 }
-ul#items-list li .data i:hover {
-  color: #d69900;
+ul#items-list li.item .data i:hover {
+  color: #0c5088;
   cursor: pointer;
+}
+ul#items-list li .data .list {
+  position: absolute;
+  top: 63px;
+  left: 0px;
+  width: 100%;
+  height: 200px;
+  background: purple;
+  padding: 10px;
 }
 ul#items-list li .time {
   font-family: "Roboto", sans-serif;
@@ -145,21 +156,20 @@ ul#items-list li .time {
   border-color: red !important;
   color: red !important;
 }
-.error input::placeholder{
+.error input::placeholder {
   color: rgba(255, 0, 0, 0.565);
 }
 
-
 /* now the flash messages */
-#flash{
+#flash {
   flex-grow: 1;
   height: 50px;
   text-align: center;
   padding: 10px;
-  border-radius: 2  px;
+  border-radius: 2 px;
   display: none;
 }
-#flash.error{
+#flash.error {
   background: #ff00003b;
   color: red;
   display: flex;
@@ -170,7 +180,7 @@ ul#items-list li .time {
   font-weight: 600;
   margin-right: 5px;
 }
-#flash.success{
+#flash.success {
   background: #0080002f;
   color: green;
   display: flex;

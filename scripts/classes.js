@@ -30,7 +30,9 @@ class TableItem {
     this.willEnd = this.started + this.delta;
     const status = this.elementForm.querySelector(".status");
     status.style.transitionDuration = `${this.delta}ms`;
-    // status.style.width = "0%";
+    setTimeout(function () {
+      status.style.width = "0%";
+    }, 100);
   }
 
   update(nowTime) {
