@@ -15,14 +15,16 @@ class TableItem {
         <div>
         <h3>${description}</h3>
         <div class="frow">
-          <i class="fas fa-pencil-alt" data-func="edit"></i>
+          <i class="fas fa-plus" data-func="edit"></i>
           <i class="fas fa-trash-alt" data-func="delete"></i>
+          <i class="fas fa-table" data-func="reservations"></i>
         </div>
         </div>
         <div class="time">Starting...</div>
       </div>
     `;
     this.delta = hrs * 3600000 + mins * 60000;
+    this.reservations = ["10:00:05", "00:00:30", "00:30:00", "00:00:00"];
   }
 
   start() {
@@ -46,23 +48,22 @@ class TableItem {
 
 // this is the main timer controller
 const TimeCtrl = (function () {
-  const timerList = [];
+  const timerList = new Map();
   let intervalFunc;
 
   // This will add the time and starts it
   function push(newTimer) {
-    if (timerList.length === 0) {
+    if (timerList.size === 0) {
       startMainTimer();
     }
     newTimer.start();
-    timerList.push(newTimer);
+    timerList.set(newTimer.id, newTimer);
   }
 
   // removes the timer
-  function remove(itemIndex) {
-    const removed = timerList.splice(itemIndex, 1);
-    removed[0].elementForm.remove();
-    if (timerList.length === 0) {
+  function remove(itemId) {
+    timerList.delete(itemId);
+    if (timerList.size === 0) {
       stopMainTimer();
     }
   }
@@ -76,7 +77,7 @@ const TimeCtrl = (function () {
         nowTime += 1000;
       }
 
-      for (const timer of timerList) {
+      for (const timer of timerList.values()) {
         timer.update(nowTime);
       }
     }, 1000);
@@ -87,6 +88,10 @@ const TimeCtrl = (function () {
     clearInterval(intervalFunc);
   }
 
+  function getTimer(timerId) {
+    return timerList.get(timerId);
+  }
+
   function logTimer() {
     console.log(timerList);
   }
@@ -94,5 +99,6 @@ const TimeCtrl = (function () {
     push,
     remove,
     logTimer,
+    getTimer,
   };
 })();

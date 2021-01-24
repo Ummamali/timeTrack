@@ -6,14 +6,18 @@
     <script
       src="https://kit.fontawesome.com/8f301084b2.js"
       crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="http://cdn.protonium.xyz/magma.css" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="app.css" />
-    <title>Document</title>
-  </head>
-
-  <body>
+      ></script>
+      <link rel="stylesheet" href="http://cdn.protonium.xyz/magma.css" />
+      <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="app.css" />
+      <title>Document</title>
+    </head>
+    
+    <body>
+    <div id="res-box">
+      <h3 class="mb-1">Reservations for this item</h3>
+      <ol></ol>
+    </div>
     <main id="main-app">
       <div class="container">
         <!-- The input card -->
@@ -102,6 +106,7 @@
           </div>
           <!-- the items -->
           <ul id="items-list">
+            <!-- This floating box represents the reservations -->
             <li class="item">
               <p class="number">1</p>
               <div class="data">
@@ -112,12 +117,6 @@
                     <i class="fas fa-plus"></i>
                     <i class="fas fa-trash-alt"></i>
                     <i class="fas fa-table"></i>
-                  </div>
-                  <div class="list">
-                    <h3>This Item's Reservations</h3>
-                    <ol>
-                      <li>1:00:12</li>
-                    </ol>
                   </div>
                 </div>
                 <div class="time">01:15:20</div>

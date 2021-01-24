@@ -28,6 +28,23 @@ main#main-app .card #logo-img {
   width: 100px;
 }
 
+#res-box{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: white;
+  border: 1px solid var(--li-border-color);
+  padding: 10px 20px;
+  z-index: 1;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0px 0px 10px #00000035;
+  display: none;
+}
+#res-box ol{
+  margin-left: 20px;
+  color: #676565;
+}
+
 /* form and other styling */
 input::placeholder {
   font-size: 14px;
@@ -66,12 +83,12 @@ main#main-app .form-group .btn {
 ul#items-list {
   list-style: none;
 }
-ul#items-list li.item {
+ul#items-list li {
   display: grid;
   grid-template-columns: 70px auto;
   margin-bottom: 8px;
 }
-ul#items-list li.item .number {
+ul#items-list li .number {
   font-family: "Roboto", sans-serif;
   display: flex;
   align-items: center;
@@ -82,7 +99,7 @@ ul#items-list li.item .number {
   border: 1px solid #21597f;
   font-size: 20px;
 }
-ul#items-list li.item .data {
+ul#items-list li .data {
   position: relative;
   border-top: 1px solid var(--li-border-color);
   border-bottom: 1px solid var(--li-border-color);
@@ -92,7 +109,7 @@ ul#items-list li.item .data {
   justify-content: space-between;
   padding: 10px;
 }
-ul#items-list li.item .data .status {
+ul#items-list li .data .status {
   content: "";
   position: absolute;
   top: 0px;
@@ -104,28 +121,22 @@ ul#items-list li.item .data .status {
   transition-property: width;
   transition-timing-function: linear;
 }
-ul#items-list li.item .data h3 {
+ul#items-list li .data h3 {
   font-weight: 500;
   color: #333;
   margin-bottom: 5px;
 }
-ul#items-list li.item .data i {
+ul#items-list li .data i {
   font-size: 14px;
   margin: 0px 5px;
   color: #2b8fe0;
 }
-ul#items-list li.item .data i:hover {
+ul#items-list li .data i:hover {
   color: #0c5088;
   cursor: pointer;
 }
-ul#items-list li .data .list {
-  position: absolute;
-  top: 63px;
-  left: 0px;
-  width: 100%;
-  height: 200px;
-  background: purple;
-  padding: 10px;
+ul#items-list li .data i.turned-on{
+  color: #ff950b;
 }
 ul#items-list li .time {
   font-family: "Roboto", sans-serif;

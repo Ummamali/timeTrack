@@ -9,7 +9,10 @@ UiCtrl = (function () {
     minsField: document.getElementById("minutes"),
     itemsList: document.getElementById("items-list"),
     flashContainer: document.getElementById("flash"),
+    resBox: document.getElementById("res-box"),
   };
+
+  let raisedTarget = null;
 
   // gets the selectros
   function getDOMItems() {
@@ -61,11 +64,36 @@ UiCtrl = (function () {
       DOMItems.flashContainer.classList.remove(cls);
     }, 3000);
   }
+
+  // shows the reservations
+  function handleResBox(timerObj, target, pageX, pageY) {
+    const resBox = DOMItems.resBox;
+    if (raisedTarget === target) {
+      target.classList.remove("turned-on");
+      resBox.style.display = "none";
+      raisedTarget = null;
+    } else {
+      let listString = "";
+      for (const item of timerObj.reservations) {
+        listString += `<li>${item}</li>`;
+      }
+      resBox.querySelector("ol").innerHTML = listString;
+      resBox.style.display = "block";
+      resBox.style.top = `${pageY - resBox.offsetHeight}px`;
+      resBox.style.left = `${pageX + 10}px`;
+      target.classList.add("turned-on");
+      if (raisedTarget !== null) {
+        raisedTarget.classList.remove("turned-on");
+      }
+      raisedTarget = target;
+    }
+  }
   // exports
   return {
     getDOMItems,
     getData,
     clearFields,
     flash,
+    handleResBox,
   };
 })();

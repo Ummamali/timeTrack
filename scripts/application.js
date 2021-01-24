@@ -3,7 +3,6 @@
 App = (function (UiCtrl, TimeCtrl) {
   // This is the main app controller
   const DOMItems = UiCtrl.getDOMItems();
-  const itemsIds = [];
 
   function createPushItem(itemData) {
     const table = new TableItem(
@@ -14,13 +13,6 @@ App = (function (UiCtrl, TimeCtrl) {
     );
     DOMItems.itemsList.appendChild(table.elementForm);
     TimeCtrl.push(table);
-    itemsIds.push(table.id);
-  }
-
-  function removeItem(itemId) {
-    const index = itemsIds.findIndex((id) => id === itemId);
-    itemsIds.splice(index, 1);
-    TimeCtrl.remove(index);
   }
 
   // loads all the listeners
@@ -31,7 +23,7 @@ App = (function (UiCtrl, TimeCtrl) {
       const formData = UiCtrl.getData();
       if (formData !== null) {
         // now checking whether the id alredy exists or not
-        if (itemsIds.includes(formData.number) === false) {
+        if (typeof TimeCtrl.getTimer(formData.number) === "undefined") {
           createPushItem(formData);
           UiCtrl.clearFields();
           UiCtrl.flash(`Table ${formData.number} has been added`, "success");
@@ -58,8 +50,14 @@ App = (function (UiCtrl, TimeCtrl) {
     DOMItems.itemsList.addEventListener("click", function (e) {
       const target = e.target;
       if (target.dataset.func === "delete") {
-        const id = target.parentNode.parentNode.parentNode.dataset.id;
-        removeItem(id);
+        const id =
+          target.parentNode.parentNode.parentNode.parentNode.dataset.id;
+        TimeCtrl.getTimer(id).elementForm.remove();
+        TimeCtrl.remove(id);
+      } else if (target.dataset.func === "reservations") {
+        const id =
+          target.parentNode.parentNode.parentNode.parentNode.dataset.id;
+        UiCtrl.handleResBox(TimeCtrl.getTimer(id), target, e.pageX, e.pageY);
       }
     });
   }
