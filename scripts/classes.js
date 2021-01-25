@@ -11,30 +11,40 @@ class TableItem {
     this.elementForm.innerHTML = `
       <p class="number">${id}</p>
       <div class="data">
-        <div class="status"></div>
         <div>
         <h3>${description}</h3>
         <div class="frow">
-          <i class="fas fa-plus" data-func="edit"></i>
+          <i class="fas fa-plus" data-func="add-res"></i>
           <i class="fas fa-trash-alt" data-func="delete"></i>
           <i class="fas fa-table" data-func="reservations"></i>
         </div>
         </div>
         <div class="time">Starting...</div>
       </div>
+      <div class="add-card frow-dis">
+          <div class="data-card">
+            <div class="form-group mb-05">
+              <label>New Hours</label>
+              <input type="number" class="hours">
+            </div>
+            <div class="form-group">
+              <label>New Minutes</label>
+              <input type="number" class="minutes">
+            </div>
+          </div>
+          <div class="frow">
+            <button class="btn bg mr-1" data-func="start-new">Start</button>
+            <button class="btn" data-func="cancel-res">Cancel</button>
+          </div>
+      </div>
     `;
     this.delta = hrs * 3600000 + mins * 60000;
-    this.reservations = ["10:00:05", "00:00:30", "00:30:00", "00:00:00"];
+    this.reservations = [];
   }
 
   start() {
     this.started = new Date().getTime();
     this.willEnd = this.started + this.delta;
-    const status = this.elementForm.querySelector(".status");
-    status.style.transitionDuration = `${this.delta}ms`;
-    setTimeout(function () {
-      status.style.width = "0%";
-    }, 100);
   }
 
   update(nowTime) {
@@ -43,6 +53,14 @@ class TableItem {
     this.elementForm.querySelector(
       ".time"
     ).textContent = `${timeToShow.getUTCHours()}:${timeToShow.getUTCMinutes()}:${timeToShow.getUTCSeconds()}`;
+  }
+
+  startNew(newHours, newMins){
+    const now = new Date().getTime();
+    const timePassed = new Date(now - this.started);
+    this.reservations.push(`${timePassed.getUTCHours()}:${timePassed.getUTCMinutes()}:${timePassed.getUTCSeconds()}`)
+    this.delta = newHours * 3600000 + newMins * 60000;
+    this.start()
   }
 }
 

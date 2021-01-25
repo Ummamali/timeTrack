@@ -49,15 +49,26 @@ App = (function (UiCtrl, TimeCtrl) {
     // The listener to remove the reservation
     DOMItems.itemsList.addEventListener("click", function (e) {
       const target = e.target;
+      let id =
+        target.parentNode.parentNode.parentNode.parentNode.dataset.id;
       if (target.dataset.func === "delete") {
-        const id =
-          target.parentNode.parentNode.parentNode.parentNode.dataset.id;
         TimeCtrl.getTimer(id).elementForm.remove();
         TimeCtrl.remove(id);
       } else if (target.dataset.func === "reservations") {
-        const id =
-          target.parentNode.parentNode.parentNode.parentNode.dataset.id;
         UiCtrl.handleResBox(TimeCtrl.getTimer(id), target, e.pageX, e.pageY);
+      } else if (target.dataset.func === 'add-res'){
+        UiCtrl.loadEdit(TimeCtrl.getTimer(id))
+      } else if (target.dataset.func === 'cancel-res'){
+        id = target.parentNode.parentNode.parentNode.dataset.id;
+        UiCtrl.removeEdit(TimeCtrl.getTimer(id));
+      } else if(target.dataset.func === 'start-new'){
+        id = target.parentNode.parentNode.parentNode.dataset.id;
+        const timerObject = TimeCtrl.getTimer(id);  
+        const data = UiCtrl.getDataFrom(timerObject);
+        if(data !== null){
+          timerObject.startNew(data.hours, data.mins);
+          UiCtrl.removeEdit(timerObject);
+        }
       }
     });
   }

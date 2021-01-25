@@ -88,6 +88,35 @@ UiCtrl = (function () {
       raisedTarget = target;
     }
   }
+
+  // loads the edit mode for a reservation
+  function loadEdit(timerObject){
+    timerObject.elementForm.querySelector('.data').style.display = 'none';
+    timerObject.elementForm.querySelector('.add-card').style.display = 'flex';
+  }
+
+  function removeEdit(timerObject){
+    timerObject.elementForm.querySelector('.data').style.display = 'flex';
+    timerObject.elementForm.querySelector('.add-card').style.display = 'none';
+  }
+
+  function getDataFrom(timerObject){
+    const data = {
+      hours: parseInt(timerObject.elementForm.querySelector('.hours').value),
+      mins: parseInt(timerObject.elementForm.querySelector('.minutes').value)
+    };
+    let result = data;
+    if(isNaN(data.hours) || data.hours < 0){
+      flash('Invalid data given !', 'error');
+      result = null;
+    }
+    if(isNaN(data.mins) || data.mins < 0 || data.mins > 59){
+      flash('Invalid data given !', 'error');
+      result = null;
+    }
+    return result;
+
+  }
   // exports
   return {
     getDOMItems,
@@ -95,5 +124,8 @@ UiCtrl = (function () {
     clearFields,
     flash,
     handleResBox,
+    loadEdit,
+    removeEdit,
+    getDataFrom
   };
 })();
