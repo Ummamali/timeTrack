@@ -1,7 +1,7 @@
 /* This conatisn all styling for main container */
 
 :root {
-  --li-border-color: #ccc;
+  --li-border-color: #06578f47;
 }
 
 main#main-app {
@@ -51,8 +51,8 @@ input::placeholder {
   font-style: italic;
   color: #aaa;
 }
-main#main-app input[type="text"],
-main#main-app input[type="number"] {
+main#main-app #main-form input[type="text"],
+main#main-app #main-form input[type="number"] {
   border-top: none;
   border-right: none;
   border-left: none;
@@ -104,6 +104,8 @@ ul#items-list li .data {
   border-top: 1px solid var(--li-border-color);
   border-bottom: 1px solid var(--li-border-color);
   border-right: 1px solid var(--li-border-color);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -117,7 +119,7 @@ ul#items-list li .data .status {
   z-index: -1;
   width: 100%;
   height: 100%;
-  background: #aaaaaa47;
+  background: #006bb31a;
   transition-property: width;
   transition-timing-function: linear;
 }
@@ -145,6 +147,28 @@ ul#items-list li .time {
   justify-content: center;
   font-size: 19px;
 }
+
+#items-list li .add-card{
+  border: 1px solid var(--li-border-color);
+  padding: 10px;
+}
+#items-list li .add-card .data-card{
+  flex: 1;
+}
+#items-list li .form-group{
+  padding: 0px;
+}
+#items-list li .add-card label,
+#items-list li .add-card input
+{
+  display: inline;
+  width: auto;
+  padding: 5px;
+}
+#items-list li .add-card label{
+  margin-right: 10px;
+}
+
 
 /* for erros */
 .error-msg {
