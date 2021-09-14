@@ -1,48 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/8f301084b2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="http://cdn.protonium.xyz/magma.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>TimeTrack | Track your time | Protonium Apps</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/8f301084b2.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="http://cdn.protonium.xyz/magma.css">
-  <link rel="stylesheet" href="./style.css">
-  <title>TimeTrack | Track your time | Protonium Apps</title>
-</head>
-
-<body>
-  <header>
-    <div class="nav container">
-      <div class="logo">
-        <h2><a href="./index.html"><i class="fas fa-hourglass-end"></i>TimeTrack</a></h2>
+  <body>
+    <header>
+      <div class="nav container">
+        <div class="logo">
+          <h2>
+            <a href="./index.html"
+              ><i class="fas fa-hourglass-end"></i>TimeTrack</a
+            >
+          </h2>
+        </div>
+        <div id="logged-in"></div>
       </div>
-      <div id="logged-in"></div>
-    </div>
-  </header>
-  <main>
-    <!-- the login container -->
-    <div class="container">
-      <div class="small card">
-        <div class="title">
-          <img src="./imgs/time_showcase.png" alt="time">
+    </header>
+    <main>
+      <!-- the login container -->
+      <div class="container">
+        <div class="small card">
+          <div class="title">
+            <img src="./imgs/time_showcase.png" alt="time" />
             <h1>Sign In</h1>
             <p class="light">The application is waiting for you</p>
+          </div>
+          <form>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" id="email" autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                autocomplete="current-password"
+              />
+            </div>
+            <a class="btn bg bg-primary-dark" href="./app.html"
+              ><i class="fas fa-sign-in-alt"></i>Sign In</a
+            >
+          </form>
         </div>
-        <form>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" id="email" autocomplete="email">
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" autocomplete="current-password">
-          </div>
-          <button type='submit' class="btn bg bg-primary-dark"><i class="fas fa-sign-in-alt"></i>Sign In</button>
-        </form>
+        <p class="dangler">
+          Don't have an account? <a href="./register.html">Register</a>
+        </p>
       </div>
-      <p class="dangler">Don't have an account? <a href="./register.html">Register</a></p>
-    </div>
-  </main>
-</body>
-
+    </main>
+  </body>
 </html>

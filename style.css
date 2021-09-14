@@ -1,102 +1,96 @@
 /* This is the main stylesheet */
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-:root{
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+:root {
   --container-width: 880px;
   --primary: #2d85c6;
   --primary-dark: #0f4b80;
-  --light: #DDFFE7;
+  --light: #ddffe7;
 }
 
-a{
+a {
   text-decoration: none;
   color: var(--primary-dark);
   font-weight: 600;
 }
 
-
-.btn{
+.btn {
   text-transform: none !important;
 }
-.btn[type='submit']{
+.btn {
   padding: 8px 30px;
   font-size: 16px;
 }
-.btn i{
+.btn i {
   margin-right: 5px !important;
 }
-
-
 
 /* these are the internal stylings */
 /* The header */
 header {
   background-color: var(--primary-dark);
 }
-header .nav{
+header .nav {
   padding: 15px;
 }
-header .logo{
+header .logo {
   padding: 0px 10px;
 }
-header .logo a{
+header .logo a {
   color: #fff;
 }
-header .logo i{
+header .logo i {
   margin-right: 5px;
 }
 
-
-main{
+main {
   padding: 60px 15px;
 }
 
 /* now the main styling */
-.card{
+.card {
   border: 1px solid #dcdcdc;
   padding: 25px 15px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px #00000030;
 }
-.card.small{
+.card.small {
   max-width: 500px;
   margin: 0px auto;
 }
-.card .title{
+.card .title {
   text-align: center;
   margin-bottom: 20px;
 }
-.card .title img{
+.card .title img {
   width: 150px;
 }
-.card .title h1{
+.card .title h1 {
   margin-top: -5px;
   font-size: 42px;
   font-weight: 500;
   color: #222;
 }
-.card .title p.light{
+.card .title p.light {
   color: #5a5a5a;
   font-size: 14.5px;
 }
 
-main .dangler{
+main .dangler {
   text-align: center;
   margin-top: 10px;
 }
 
-
-
 /* some utility classes */
 
 /* backgrounds */
-.bg-primary{
+.bg-primary {
   background: var(--primary) !important;
 }
-.bg-primary-dark{
+.bg-primary-dark {
   background: var(--primary-dark) !important;
 }
 
-.container{
+.container {
   max-width: var(--container-width);
   margin: 0px auto;
 }
