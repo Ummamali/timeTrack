@@ -29,11 +29,6 @@ Currently, the app **does not support authentication**. Simply click on the **Si
 
 ---
 
-## 📷 Screenshots (Optional)  
-> Include screenshots or a demo GIF to visually showcase the app’s functionality.  
-
----
-
 ## 📦 How to Use  
 Follow these steps to run the application locally:  
 
