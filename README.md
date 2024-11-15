@@ -1,20 +1,42 @@
-# timeTrack
-A vanilla JS CRUD application to keep track of the time reserved for the player. This app is designed for gaming zones.
+# ⏱️ timeTrack  
+A lightweight Vanilla JavaScript CRUD application to manage gaming zone reservations with ease.  
 
-## Features
-* Keep track of which gaming PC has been reserved by its number
-* Add additional data and description about the seat reserved for pc
-* Countdown in Hours and Minutes
-* Form Validation
-* Additional reservations data if player wants to play for more time
-* Delete reservation 
+---
 
-## Technologies Used
-* HTML
-* CSS 
-* Vanilla Javascript and DOM manipulation
-* OOP for Table object
-* Separate UI and Data Controllers as Modules
+## 🚀 Features  
+- **PC Reservation Management**: Track gaming PC reservations by seat number.  
+- **Detailed Descriptions**: Add custom notes or descriptions for each reserved PC.  
+- **Countdown Timer**: Displays the remaining time in hours and minutes.  
+- **Form Validation**: Ensure accurate and complete user inputs.  
+- **Flexible Extensions**: Allow players to extend their reservations seamlessly.  
+- **Easy Management**: Delete or update reservations as needed.  
 
-## Authentication
-This app does not support authentication yet, just click the Sign In or Register Button and it will lead to the app
+---
+
+## 🛠️ Technologies Used  
+- **HTML**: For structuring the application.  
+- **CSS**: To provide a clean and user-friendly design.  
+- **Vanilla JavaScript**: Leverage DOM manipulation for dynamic features.  
+- **OOP Principles**: Encapsulated logic with a `Table` object.  
+- **Modular Design**: Organized with separate UI and Data Controllers.  
+
+---
+
+## 🔒 Authentication  
+Currently, the app **does not support authentication**. Simply click on the **Sign In** or **Register** button to access the app.  
+
+> **Note**: Authentication features may be included in future updates.  
+
+---
+
+## 📷 Screenshots (Optional)  
+> Include screenshots or a demo GIF to visually showcase the app’s functionality.  
+
+---
+
+## 📦 How to Use  
+Follow these steps to run the application locally:  
+
+1. **Clone the repository**:  
+   ```bash  
+   git clone https://github.com/ummamali/timeTrack.git  
